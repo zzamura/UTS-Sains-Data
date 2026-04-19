@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase UTS Sains Data - Kelompok 7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #f97316;
+            --primary-light: #ffedd5;
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #cbd5e1;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .font-heading { font-family: 'Outfit', sans-serif; }
+
+        /* Ornamen Latar Belakang */
+        .glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(80px);
+            animation: pulse 15s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: translate(-10%, -10%) scale(1); }
+            to { transform: translate(15%, 15%) scale(1.1); }
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 2.5rem;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(249, 115, 22, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #fb923c, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(249, 115, 22, 0.1);
+            color: var(--primary);
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(249, 115, 22, 0.2);
+        }
+
+        .upload-zone {
+            background: rgba(15, 23, 42, 0.4);
+            border: 2px dashed rgba(255, 255, 255, 0.05);
+            border-radius: 1.5rem;
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            overflow: hidden;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--primary);
+            background: rgba(249, 115, 22, 0.03);
+        }
+
+        .preview-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+            z-index: 10;
+        }
+
+        .explanation-text {
+            font-size: 0.925rem;
+            line-height: 1.7;
+            color: #94a3b8;
+        }
+
+        .highlight-box {
+            background: linear-gradient(to right, rgba(249, 115, 22, 0.1), transparent);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0 1rem 1rem 0;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+    </style>
+</head>
+<body class="py-12 px-4 md:px-8">
+
+    <div class="glow"></div>
+    <div class="glow" style="right: 0; bottom: 0; animation-delay: -7s; background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);"></div>
+
+    <div class="max-w-6xl mx-auto space-y-12">
+        
+        <!-- HEADER / SLIDE 1 -->
+        <header class="glass-card grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="section-tag">UTS Sains Data 2025</span>
+                <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-6">
+                    Prediksi <span class="text-gradient">Berat Ikan</span>
+                </h1>
+                <p class="text-slate-400 text-lg mb-8">
+                    Analisis karakteristik fisik melalui pendekatan Machine Learning untuk otomasi estimasi berat pada komoditas perikanan.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex -space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white border-2 border-slate-900 font-bold">Z</div>
+                        <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white border-2 border-slate-900 font-bold">F</div>
+                        <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white border-2 border-slate-900 font-bold">A</div>
+                        <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white border-2 border-slate-900 font-bold">R</div>
+                    </div>
+                    <div class="text-sm">
+                        <p class="font-bold text-white">Kelompok 7</p>
+                        <p class="text-slate-500 text-xs uppercase tracking-tighter">S1 Teknologi & Bisnis Perikanan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative hidden md:block">
+                <div class="absolute inset-0 bg-orange-500/20 blur-[100px] rounded-full"></div>
+                <img src="https://www.svgrepo.com/show/490731/fish.svg" class="relative w-full opacity-20 filter invert p-12" alt="Fish Icon">
+            </div>
+        </header>
+
+        <!-- LATAR BELAKANG & TUJUAN / SLIDE 2 & 3 -->
+        <div class="grid md:grid-cols-12 gap-8">
+            <div class="md:col-span-7 glass-card">
+                <span class="section-tag">Konteks & Masalah</span>
+                <h2 class="text-3xl font-bold text-white mb-6">Mengapa Prediksi Digital?</h2>
+                <div class="explanation-text space-y-4">
+                    <p>
+                        Berat ikan merupakan parameter krusial dalam menentukan nilai ekonomi dan efisiensi logistik. Metode konvensional memerlukan penimbangan fisik yang memakan waktu dan berisiko menyebabkan stres pada ikan (handling stress).
+                    </p>
+                    <div class="highlight-box mt-4">
+                        <p class="text-white font-semibold">Solusi Machine Learning:</p>
+                        <p>Memanfaatkan variabel dimensi fisik (panjang, tinggi, lebar) untuk mengestimasi berat secara instan tanpa kontak fisik langsung.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-5 glass-card bg-orange-500/5 border-orange-500/20">
+                <h3 class="text-xl font-bold text-orange-500 mb-6">Tujuan Utama</h3>
+                <ul class="space-y-4 text-sm font-medium">
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-dot text-orange-500"></i> Membangun model regresi akurasi tinggi.
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-dot text-orange-500"></i> Komparasi efisiensi Linear vs Forest.
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-dot text-orange-500"></i> Identifikasi fitur fisik paling dominan.
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-dot text-orange-500"></i> Validasi hasil Modeling vs EDA.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DATASET & CLEANING / SLIDE 4 & 5 -->
+        <div class="grid md:grid-cols-12 gap-8">
+            <div class="md:col-span-4 glass-card flex flex-col justify-between">
+                <div>
+                    <span class="section-tag">Dataset</span>
+                    <h2 class="text-2xl font-bold text-white mb-4">Fish.csv</h2>
+                    <p class="explanation-text text-sm">
+                        Berisi 159 entri data dengan 7 variabel fisik ikan lintas spesies.
+                    </p>
+                </div>
+                <div class="mt-8 space-y-2">
+                    <div class="flex justify-between text-xs py-2 border-b border-white/5">
+                        <span>Target Variabel</span>
+                        <span class="text-orange-500 font-bold">Weight</span>
+                    </div>
+                    <div class="flex justify-between text-xs py-2 border-b border-white/5">
+                        <span>Fitur Independen</span>
+                        <span class="text-slate-400">Species, L1-L3, H, W</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-8 glass-card">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-bold text-white mb-4 italic"><i class="fa-solid fa-wand-magic-sparkles text-orange-500 mr-2"></i>Data Preprocessing</h3>
+                        <p class="explanation-text text-xs mb-4">
+                            Kualitas data menentukan kualitas prediksi. Tahapan pembersihan meliputi:
+                        </p>
+                        <ul class="text-xs space-y-2 text-slate-400">
+                            <li>• <strong>Filtering:</strong> Menghapus baris dengan Weight ≤ 0.</li>
+                            <li>• <strong>Encoding:</strong> Transformasi label spesies ke numerik.</li>
+                            <li>• <strong>Scaling:</strong> Normalisasi fitur via StandardScaler.</li>
+                            <li>• <strong>Splitting:</strong> Pembagian data (80% Train / 20% Test).</li>
+                        </ul>
+                    </div>
+                    <div class="upload-zone" onclick="this.querySelector('input').click()">
+                        <input type="file" class="hidden" onchange="handleUpload(this)">
+                        <span class="text-[10px] font-bold text-slate-600 uppercase tracking-widest">Upload df.info()</span>
+                        <img class="preview-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EDA ANALYSIS / SLIDE 6 & 7 -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass-card">
+                <span class="section-tag">Visual Analitik 01</span>
+                <h3 class="text-xl font-bold text-white mb-4">Distribusi Target</h3>
+                <div class="upload-zone !min-height-[250px] mb-6" onclick="this.querySelector('input').click()">
+                    <input type="file" class="hidden" onchange="handleUpload(this)">
+                    <span class="text-[10px] font-bold text-slate-600">Histogram Weight</span>
+                    <img class="preview-img">
+                </div>
+                <p class="explanation-text text-xs">
+                    Data menunjukkan kemiringan (skewness) ke kanan. Mayoritas ikan berada di rentang berat rendah-sedang, dengan sedikit outlier berat tinggi yang menandakan variasi ukuran ikan yang signifikan dalam dataset.
+                </p>
+            </div>
+            <div class="glass-card">
+                <span class="section-tag">Visual Analitik 02</span>
+                <h3 class="text-xl font-bold text-white mb-4">Matriks Korelasi</h3>
+                <div class="upload-zone !min-height-[250px] mb-6" onclick="this.querySelector('input').click()">
+                    <input type="file" class="hidden" onchange="handleUpload(this)">
+                    <span class="text-[10px] font-bold text-slate-600">Heatmap Korelasi</span>
+                    <img class="preview-img">
+                </div>
+                <p class="explanation-text text-xs">
+                    Terdapat korelasi positif yang sangat kuat (di atas 0.8) antara seluruh dimensi panjang dengan berat. Fitur <strong>Length3</strong> menonjol sebagai indikator linear paling potensial bagi model regresi.
+                </p>
+            </div>
+        </div>
+
+        <!-- MODEL & EVALUATION / SLIDE 10 & 11 -->
+        <div class="glass-card relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-10 opacity-5 text-7xl"><i class="fa-solid fa-microchip"></i></div>
+            <span class="section-tag">Modeling & Performance</span>
+            <h2 class="text-3xl font-bold text-white mb-8">Hasil Evaluasi Komparatif</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 overflow-x-auto">
+                    <table class="w-full text-sm text-left">
+                        <thead class="text-xs uppercase text-slate-500 border-b border-white/5">
+                            <tr>
+                                <th class="py-4">Algorithm</th>
+                                <th class="py-4">MAE</th>
+                                <th class="py-4">RMSE</th>
+                                <th class="py-4">R² Score</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-white">
+                            <tr class="border-b border-white/5">
+                                <td class="py-4 font-bold text-slate-400">Linear Regression</td>
+                                <td class="py-4">72.41</td>
+                                <td class="py-4">104.35</td>
+                                <td class="py-4">0.92</td>
+                            </tr>
+                            <tr class="bg-orange-500/10">
+                                <td class="py-4 font-black text-orange-500 italic">Random Forest</td>
+                                <td class="py-4 font-bold">43.87</td>
+                                <td class="py-4 font-bold">66.12</td>
+                                <td class="py-4 font-black text-lg">0.97</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="mt-8 p-4 bg-slate-900/50 rounded-xl">
+                        <p class="explanation-text text-xs italic">
+                            <strong>Analisis:</strong> Model Random Forest berhasil menurunkan error (MAE) sebesar hampir 40% dibanding Linear Regression. Akurasi R² mencapai 0.97, artinya model mampu menjelaskan 97% variansi data berat ikan.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-2xl flex flex-col justify-center">
+                    <h4 class="text-sm font-bold text-white mb-4">Kenapa Random Forest?</h4>
+                    <p class="explanation-text text-xs leading-relaxed">
+                        Algoritma berbasis pohon (Tree-based) ini jauh lebih tangguh dalam menangani hubungan non-linear dan korelasi antar fitur yang kompleks antar spesies ikan yang berbeda-beda.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FEATURE IMPORTANCE / SLIDE 13 -->
+        <div class="grid md:grid-cols-12 gap-8">
+            <div class="md:col-span-8 glass-card">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold text-white">Interpretasi Fitur</h3>
+                    <i class="fa-solid fa-chart-simple text-orange-500"></i>
+                </div>
+                <div class="upload-zone !min-height-[280px]" onclick="this.querySelector('input').click()">
+                    <input type="file" class="hidden" onchange="handleUpload(this)">
+                    <span class="text-[10px] font-bold text-slate-600">Feature Importance Plot</span>
+                    <img class="preview-img">
+                </div>
+            </div>
+            <div class="md:col-span-4 glass-card bg-slate-900/30">
+                <h4 class="text-sm font-bold text-orange-500 mb-6">Penentu Berat Utama:</h4>
+                <div class="space-y-4">
+                    <div class="p-3 bg-white/5 rounded-lg border border-white/5">
+                        <span class="text-xs font-bold text-white">1. Length3</span>
+                        <div class="w-full bg-slate-700 h-1.5 mt-2 rounded-full"><div class="bg-orange-500 h-full w-[90%] rounded-full"></div></div>
+                    </div>
+                    <div class="p-3 bg-white/5 rounded-lg border border-white/5">
+                        <span class="text-xs font-bold text-white">2. Height</span>
+                        <div class="w-full bg-slate-700 h-1.5 mt-2 rounded-full"><div class="bg-orange-500 h-full w-[75%] rounded-full"></div></div>
+                    </div>
+                    <div class="p-3 bg-white/5 rounded-lg border border-white/5">
+                        <span class="text-xs font-bold text-white">3. Width</span>
+                        <div class="w-full bg-slate-700 h-1.5 mt-2 rounded-full"><div class="bg-orange-500 h-full w-[60%] rounded-full"></div></div>
+                    </div>
+                </div>
+                <p class="explanation-text text-[10px] mt-6 leading-relaxed">
+                    Hal ini membuktikan secara ilmiah bahwa dimensi tubuh (volume) adalah faktor dominan penentu massa ikan, memvalidasi asumsi awal pada tahap EDA.
+                </p>
+            </div>
+        </div>
+
+        <!-- ACTUAL VS PREDICTION / SLIDE 14 -->
+        <div class="glass-card">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="upload-zone !min-height-[350px]" onclick="this.querySelector('input').click()">
+                    <input type="file" class="hidden" onchange="handleUpload(this)">
+                    <span class="text-[10px] font-bold text-slate-600">Actual vs Predicted Plot</span>
+                    <img class="preview-img">
+                </div>
+                <div>
+                    <span class="section-tag">Hasil Akhir</span>
+                    <h2 class="text-3xl font-bold text-white mb-6">Akurasi Visual</h2>
+                    <p class="explanation-text mb-6">
+                        Garis diagonal pada grafik ini merepresentasikan prediksi sempurna. Konsentrasi data yang sangat rapat di sepanjang garis tersebut mengonfirmasi bahwa Random Forest memiliki tingkat kesalahan yang minimal bahkan pada variasi berat ikan yang ekstrem.
+                    </p>
+                    <div class="flex gap-4 items-center p-4 bg-orange-500/5 rounded-2xl border border-orange-500/20">
+                        <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white text-xl">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white uppercase tracking-widest">Model Status</p>
+                            <p class="text-sm text-orange-500 font-black">HIGHLY RELIABLE (0.97 R²)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KESIMPULAN / SLIDE 15 -->
+        <footer class="glass-card bg-gradient-to-br from-orange-500 to-orange-700 text-white py-16 text-center overflow-hidden relative">
+            <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 30px 30px;"></div>
+            <h2 class="text-4xl font-black mb-8 relative z-10">KESIMPULAN</h2>
+            <div class="max-w-3xl mx-auto space-y-6 text-sm md:text-base font-medium relative z-10">
+                <p class="opacity-90">Machine Learning berhasil menggantikan peran timbangan fisik dengan akurasi yang sangat tinggi.</p>
+                <div class="h-[1px] w-12 bg-white/30 mx-auto"></div>
+                <p class="opacity-90">Model Random Forest adalah pilihan optimal untuk dataset ini dengan R² mencapai 0.97.</p>
+                <div class="h-[1px] w-12 bg-white/30 mx-auto"></div>
+                <p class="opacity-90">Variabel <strong>Length3, Height, dan Width</strong> adalah kunci utama dalam otomasi estimasi berat ikan.</p>
+            </div>
+            <div class="mt-12 relative z-10">
+                <p class="text-xs font-black uppercase tracking-[0.5em] mb-4">Terima Kasih</p>
+                <div class="flex justify-center gap-4">
+                    <span class="w-2 h-2 rounded-full bg-white"></span>
+                    <span class="w-2 h-2 rounded-full bg-white/50"></span>
+                    <span class="w-2 h-2 rounded-full bg-white/20"></span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        function handleUpload(input) {
+            const container = input.parentElement;
+            const preview = container.querySelector('.preview-img');
+            const placeholderText = container.querySelector('span');
+            const placeholderIcon = container.querySelector('i');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    if (placeholderText) placeholderText.style.display = 'none';
+                    if (placeholderIcon) placeholderIcon.style.display = 'none';
+                    container.style.borderStyle = 'solid';
+                    container.style.borderColor = '#f97316';
+                    container.style.background = 'rgba(0,0,0,0.5)';
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>
